@@ -1,7 +1,7 @@
 // Student function that takes the student's name and scores, averages scores, and calculates letter grade.
-var Student = function() {
-	this.firstName = 'Lysette';
-	this.scores = [ 100, 100, 100, 4, 100 ];
+var Student = function(name, scores) {
+	this.firstName = name;
+	this.scores = scores;
 	this.averageScore = function() {
 		var sum = this.scores.reduce(function(a, b) { return a + b; });
 		var average = Math.floor (sum / this.scores.length);
