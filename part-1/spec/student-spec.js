@@ -25,6 +25,7 @@ describe("Student", function(){
 
   describe("average score", function() {
     it("has an average score rounded down to the nearest whole number", function() {
+      console.log(student.averageScore())
       expect(student.averageScore()).toEqual(80);
     });
   });
@@ -32,7 +33,7 @@ describe("Student", function(){
   describe("letter grade", function() {
     it("has an A if average score is 90 or greater", function() {
       spyOn(student, "averageScore").and.returnValue(90);
-      expect(student.letterGrade()).toEqual("A");
+       expect(student.letterGrade()).toEqual("A");
     });
 
     it("has a B if average score is 80 or greater but less than 90", function() {
