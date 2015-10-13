@@ -3,19 +3,21 @@ function Classroom(students){
 }
 
 Classroom.prototype.find = function(name){
-  // this is not working....
-  return this.students.filter(function(student){
-    console.log(student.firstName)
-    console.log(name)
 
-    if(student.firstName === name){
-      console.log("true")
-      return student
-    }else{
-      console.log("false")
+  for(var i = 0; i < this.students.length; i ++){
+    if(this.students[i].firstName === name){
+      return this.students[i]
     }
+  }
 
-  })[0]
+  // Using the filter method....
+
+  // return this.students.filter(function(student){
+  //   if(student.firstName === name){
+  //     return student
+  //   }else{
+  //   }
+  // })[0]
 }
 
 Classroom.prototype.honorRollStudents = function(){
