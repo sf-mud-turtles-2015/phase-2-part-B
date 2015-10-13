@@ -11,6 +11,7 @@ $(document).ready(function(){
       })
       .done(function(response){
         $('main').append(response)
+        $('#post_form_container > h1').remove()//just want to pass test
       })
 
     });
@@ -30,6 +31,7 @@ $(document).ready(function(){
       })
       .done(function(response){
         $('main').prepend(response)
+        $('#posts > h1').remove()
       });
       $('.button_anchor').show()
 

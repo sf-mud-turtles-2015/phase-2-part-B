@@ -21,8 +21,6 @@ feature "writing a new post" do
         find("input[name='submit']").click
       end
 
-      p "*" * 80
-      p page.body
 
       expect(page).to have_content "The Post ..."
       expect(page).to have_content "Bright Idea"
