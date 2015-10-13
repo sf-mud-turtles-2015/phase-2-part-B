@@ -7,13 +7,17 @@ post "/posts" do
   @post = Post.new(params[:post])
 
   if @post.save
-    redirect "posts/#{@post.id}"
+    if request.xhr?
+      erb :'posts/show', {layout: false}
+    else
+      redirect "posts/#{@post.id}"
+    end
   end
 end
 
 get "/posts/new" do
   @post = Post.new
-  erb :'posts/new'
+  erb :'posts/new', {layout: false}
 end
 
 get "/posts/:id" do
