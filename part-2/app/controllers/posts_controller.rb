@@ -5,15 +5,25 @@ end
 
 post "/posts" do
   @post = Post.new(params[:post])
-
+  puts "X" * 100
+  p "post hit"
   if @post.save
-    redirect "posts/#{@post.id}"
+    if request.xhr?
+    erb :'posts/_post', layout: false, locals: {post: @post}
+    else
+      redirect "posts/#{@post.id}"
+    end
   end
 end
 
 get "/posts/new" do
   @post = Post.new
-  erb :'posts/new'
+  if request.xhr?
+    #return just the form partial....
+    erb :'posts/_form', layout: false, locals: {post: @post}
+  else
+    erb :'posts/new'
+  end
 end
 
 get "/posts/:id" do
