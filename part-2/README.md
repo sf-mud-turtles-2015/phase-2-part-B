@@ -52,7 +52,7 @@ $ bundle exec rspec
 Use the failing scenario and future-site user story from the *Summary* to guide your development until all the tests pass.
 
 ## Conclusion
-Once all the tests have passed, you have completed Part 2 of the assessment. If you haven't done so already, commit your changes and move on to Part 3.
+Once all the tests have passed, you have completed Part 2 of the assessment. If you haven't done so already, commit your changes.
 
 ## Screenshot Walkthrough
 
