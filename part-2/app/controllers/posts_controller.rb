@@ -7,7 +7,18 @@ post "/posts" do
   @post = Post.new(params[:post])
 
   if @post.save
-    redirect "posts/#{@post.id}"
+    if request.xhr?
+      content_type :json
+      @post.to_json
+    else
+      redirect "posts/#{@post.id}"
+    end
+  else
+    if request.xhr?
+      p "didn't save! and this is an XHR request"
+    else
+      p "didn't save! and this is a normal request"
+    end
   end
 end
 
