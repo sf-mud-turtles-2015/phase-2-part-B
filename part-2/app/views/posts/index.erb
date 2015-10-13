@@ -3,7 +3,9 @@
 </section>
 
 <section id="posts" class="left content">
+    <h1>The Post ...</h1>
   <% @posts.each do |post| %>
     <%= erb :'posts/_post', { layout: false, locals: {:post => post }} %>
   <% end %>
 </section>
+
