@@ -3,9 +3,9 @@ var Classroom = function(students) {
 }
 
 Classroom.prototype.find = function(name) {
-  return this.students.find(function(student) { student.name == name });
+  return this.students.find(function(student) { return student.firstName == name });
 }
 
-Classroom.prototype.honorRollStudents() = function() {
-  return this.students.filter(function(student) { student.averageScore() >= 95 });
+Classroom.prototype.honorRollStudents = function() {
+  return this.students.filter(function(student) { return student.averageScore() >= 95 });
 }
