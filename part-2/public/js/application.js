@@ -10,7 +10,7 @@ $(document).ready(function() {
 
       }).done(function(response){
         $("#new_post_link").css('display', 'none')
-        $("#posts").css('display', 'none')
+        // $("#posts").css('display', 'none')
         $('#sidebar').append(response)
       })
   });
@@ -27,10 +27,10 @@ $(document).ready(function() {
       type: 'post'
 
     }).done(function(response){
-      $("#posts").css('display', 'block')
+      // $("#posts").css('display', 'block')
       $("#posts").prepend(response)
       $("#new_post_link").css('display', 'block')
-      $("#post_form_container").remove()
+      $("#post_form").remove()
     })
   })
 

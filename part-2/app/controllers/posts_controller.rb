@@ -8,7 +8,7 @@ post "/posts" do
 
   if @post.save
     if request.xhr?
-      erb :'posts/show', layout: false
+      erb :'posts/_post', locals: {post: @post}, layout: false
     else
       redirect "posts/#{@post.id}"
     end
@@ -18,7 +18,7 @@ end
 get "/posts/new" do
   @post = Post.new
   if request.xhr?
-    erb :'posts/new', layout: false
+    erb :'posts/_form', locals:{post: @post}, layout: false
   else
     erb :'posts/new'
   end
