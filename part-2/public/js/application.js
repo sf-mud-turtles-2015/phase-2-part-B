@@ -23,7 +23,7 @@ $(document).ready(function() {
     .done(function(response) {
       console.log(response)
       $('#post_form_container').remove();
-      $('section#posts.left.content').prepend(response);
+      $('section#posts.left.content').prepend(response.remove('section, h1'));
       $('#new_post_link').show();
     })
   })
