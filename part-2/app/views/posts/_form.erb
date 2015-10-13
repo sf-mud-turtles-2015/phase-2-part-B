@@ -1,5 +1,7 @@
 <section id="post_form_container" class="left content">
-  <h1>Write Your Post</h1>
+  <% unless request.xhr? %>
+    <h1>Write Your Post</h1>
+  <% end %>
 
   <form id="post_form" action="/posts" method="post">
     <label for="post[title]">Title:</label><br>
