@@ -6,8 +6,18 @@ end
 post "/posts" do
   @post = Post.new(params[:post])
 
-  if @post.save
-    redirect "posts/#{@post.id}"
+  if request.xhr?
+    p "*" * 100
+    p params
+    p "*" * 100
+    @post = Post.create(title: params[:title],
+                        author_name: params[:author_name],
+                        body: params[:body])
+    erb :'posts/_post', layout: false, locals: {:post => @post}
+  else
+    if @post.save
+      redirect "posts/#{@post.id}"
+    end
   end
 end
 
