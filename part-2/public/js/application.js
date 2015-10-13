@@ -12,18 +12,21 @@ $(document).ready(function() {
 
   function showForm(path) {
     $.get(path, function(responseData) {
+      $('#errors').remove();
       if ($('#post_form').length == 0) {
         $('main').append(responseData);
-        $('#errors').remove();
       }
     });
 
     // $.ajax({
+    //   beforeSend: function() { $('#errors').remove() },
     //   method: 'GET',
     //   url: path,
     //   dataType: 'HTML'
     // }).done(function(data) {
-    //   $('main').append(data);
+    //   if ($('#post_form').length == 0) {
+    //     $('main').append(data);
+    //   }
     // });
   };
 
