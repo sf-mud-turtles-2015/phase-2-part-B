@@ -15,14 +15,15 @@ $(document).ready(function(){
   $('Body').on('submit','#post_form',function(e){
     e.preventDefault()
     var url = $('#post_form').attr("action")
-    // var data = $('#post_form').serialize()
+    var data = $('#post_form').serialize()
     // alert(data)
       $.ajax({
         url:url,
         type: "POST",
-        dataType:"HTML"
+        dataType:"HTML",
+        data: data
     }).done(function(response){
-          $("#post > post").append(response)
+          $("#posts").append(response)
           $('#post_form_container').remove()
           $('#new_post_link').show()
     })

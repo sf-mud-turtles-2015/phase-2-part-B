@@ -5,9 +5,8 @@ end
 
 post "/posts" do
  @post = Post.new(params[:post])
-@post.save
+p @post
     if request.xhr?
-
     erb :'posts/_post', layout: false, locals: { post: @post }
     else
       redirect "posts/#{@post.id}"
