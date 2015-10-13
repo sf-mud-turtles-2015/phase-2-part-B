@@ -5,8 +5,6 @@ end
 
 post "/posts" do
   @post = Post.new(params[:post])
-  puts "X" * 100
-  p "post hit"
   if @post.save
     if request.xhr?
     erb :'posts/_post', layout: false, locals: {post: @post}
