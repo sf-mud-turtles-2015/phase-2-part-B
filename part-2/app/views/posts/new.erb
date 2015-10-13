@@ -2,6 +2,19 @@
 </section>
 
 <section id="post_form_container" class="left content">
-  <h1>Write Your Post</h1>
-  <%= erb :'posts/_form', { layout: false, locals: { post: @post } } %>
+
+  <form id="post_form" action="/posts" method="post">
+    <label for="post[title]">Title:</label><br>
+    <input type="text" name="post[title]" value="<%= post.try(:title) %>"><br>
+
+    <label for="post[author_name]">Author Name:</label><br>
+    <input type="text" name="post[author_name]" value="<%= post.try(:name) %>"><br>
+
+    <label for="post[body]">Body:</label><br>
+    <textarea name="post[body]"><%= post.try(:body) %></textarea><br>
+
+    <input type="submit" name="submit" value="Submit Post"><br>
+  </form>
+
+
 </section>
