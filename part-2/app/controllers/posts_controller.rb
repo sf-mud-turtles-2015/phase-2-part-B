@@ -4,19 +4,26 @@ get "/posts" do
 end
 
 post "/posts" do
-  @post = Post.new(params[:post])
+ @post = Post.new(params[:post])
+@post.save
+    if request.xhr?
 
-  if @post.save
-    redirect "posts/#{@post.id}"
-  end
+    erb :'posts/_post', layout: false, locals: { post: @post }
+    else
+      redirect "posts/#{@post.id}"
+    end
 end
 
 get "/posts/new" do
-  @post = Post.new
-  erb :'posts/new'
+
+  if request.xhr?
+    @post = Post.new
+    erb :'posts/new', layout: false
+  end
 end
 
 get "/posts/:id" do
   @post = Post.find(params[:id])
   erb :'posts/show'
 end
+
